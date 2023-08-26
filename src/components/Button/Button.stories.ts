@@ -1,12 +1,19 @@
 import type { Meta } from "@storybook/svelte";
 import { expect } from "@storybook/jest";
 import { userEvent, within } from "@storybook/testing-library";
-import type { PlayFunctionParameter, TemplatedStoryObj, TemplateObj } from "$types/storybook";
+import type {
+  PlayFunctionParameter,
+  TemplatedStoryObj,
+  TemplateObj,
+} from "$types/storybook";
 
 import Button from "./Button.svelte";
 import ButtonExample from "./ButtonExample.svelte";
 
-const dynamicTest = async ({ args, canvasElement }: PlayFunctionParameter<ButtonExample>) => {
+const dynamicTest = async ({
+  args,
+  canvasElement,
+}: PlayFunctionParameter<ButtonExample>) => {
   const canvas = within(canvasElement);
   await userEvent.click(canvas.getByRole("button"));
   console.log(args.event_click.constructor.name);

@@ -24,7 +24,9 @@
     dispatcher("click");
   }
 
-  $: mode = primary ? "storybook-button--primary" : "storybook-button--secondary";
+  $: mode = primary
+    ? "storybook-button--primary"
+    : "storybook-button--secondary";
 
   $: style = backgroundColor ? `background-color: ${backgroundColor}` : "";
 </script>
