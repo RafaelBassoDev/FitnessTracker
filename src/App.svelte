@@ -5,6 +5,7 @@
   import lunaImg from "$assets/Luna.jpg";
   import Header from "$components/Header/Header.svelte";
   import { tick } from "svelte";
+  import TabBar from "$components/TabBar/TabBar.svelte";
 
   const userMock = {
     name: "João Silva",
@@ -36,3 +37,6 @@
     on:conditionsFailed={conditionsFailHandler}
   />
 </main>
+<footer>
+  <TabBar />
+</footer>
