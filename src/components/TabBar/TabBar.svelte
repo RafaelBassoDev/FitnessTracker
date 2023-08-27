@@ -89,8 +89,4 @@
     margin: 0 5px;
     transition: background-color 0.3s ease;
   }
-
-  .tab-button:hover {
-    background-color: #ddd;
-  }
 </style>
