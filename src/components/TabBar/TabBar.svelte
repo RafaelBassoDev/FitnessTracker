@@ -1,6 +1,17 @@
+<script lang="ts">
+  import { push } from "svelte-spa-router";
+</script>
+
 <div class="tab-bar">
   <div class="tab-bar-content">
-    <button class="tab-button">
+    <button
+      class="tab-button"
+      on:click={() => {
+        push("/").catch((e) => {
+          throw e;
+        });
+      }}
+    >
       <svg
         width="26px"
         height="26px"
@@ -18,7 +29,14 @@
         />
       </svg>
     </button>
-    <button class="tab-button">
+    <button
+      class="tab-button"
+      on:click={() => {
+        push("/").catch((e) => {
+          throw e;
+        });
+      }}
+    >
       <svg
         width="30px"
         height="30px"
@@ -35,7 +53,14 @@
         />
       </svg>
     </button>
-    <button class="tab-button">
+    <button
+      class="tab-button"
+      on:click={() => {
+        push("/").catch((e) => {
+          throw e;
+        });
+      }}
+    >
       <svg
         width="29px"
         height="29px"
