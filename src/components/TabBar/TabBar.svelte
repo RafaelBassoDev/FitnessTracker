@@ -56,7 +56,7 @@
     <button
       class="tab-button"
       on:click={() => {
-        push("/").catch((e) => {
+        push("/settings").catch((e) => {
           throw e;
         });
       }}
