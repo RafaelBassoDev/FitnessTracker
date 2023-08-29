@@ -2,6 +2,7 @@ import Home from "$pages/Home/Home.svelte";
 import NotAuthorized from "$pages/NotAuthorized/NotAuthorized.svelte";
 import NotFound from "$pages/NotFound/NotFound.svelte";
 import Profile from "$pages/Profile/Profile.svelte";
+import Settings from "$pages/Settings/Settings.svelte";
 import { isUserLoggedIn } from "$policies/auth";
 import {
   type ConditionsFailedEvent,
@@ -16,6 +17,12 @@ routes.set(
   "/",
   wrap({
     component: Home,
+  })
+);
+routes.set(
+  "/settings",
+  wrap({
+    component: Settings,
   })
 );
 routes.set(
