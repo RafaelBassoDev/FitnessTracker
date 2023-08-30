@@ -12,3 +12,18 @@
     <h1 class="group-title">{title}</h1>
   {/if}
 </div>
+
+<style lang="scss">
+  .settings-group {
+    margin-top: 1em;
+    padding: 0 1em;
+    border-radius: 10px;
+  }
+
+  .group-title {
+    font-size: 16px;
+    margin: 0 0 2px 1em;
+    padding-bottom: 5px;
+    color: #a2a1a7;
+  }
+</style>
