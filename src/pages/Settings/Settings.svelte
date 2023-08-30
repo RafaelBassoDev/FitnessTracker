@@ -1,12 +1,29 @@
 <script lang="ts">
   import SettingsGroup from "./SettingsGroup.svelte";
   import SettingsGroupRow from "./SettingsGroupRow.svelte";
+
+  let startHour = "08:00";
+  let endHour = "22:00";
 </script>
 
 <div class="container">
   <SettingsGroup title="Horários">
-    <SettingsGroupRow label="Acordar" />
-    <SettingsGroupRow label="Dormir" />
+    <SettingsGroupRow label="Acordar">
+      <input
+        type="time"
+        min="00"
+        max="24"
+        bind:value={startHour}
+      />
+    </SettingsGroupRow>
+    <SettingsGroupRow label="Dormir">
+      <input
+        type="time"
+        min="00"
+        max="24"
+        bind:value={endHour}
+      />
+    </SettingsGroupRow>
     <SettingsGroupRow label="Ativar Notificações" />
   </SettingsGroup>
 
