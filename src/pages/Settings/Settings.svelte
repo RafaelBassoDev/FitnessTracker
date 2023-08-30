@@ -1,10 +1,15 @@
 <script lang="ts">
+  import { clamp } from "$helpers/MathUtils";
   import SettingsGroup from "./SettingsGroup.svelte";
   import SettingsGroupRow from "./SettingsGroupRow.svelte";
 
   let startHour = "08:00";
   let endHour = "22:00";
   let enableNotifications = true;
+
+  let dailyVolume = 3200;
+  let minDailyVolume = 100;
+  let maxDailyVolume = 6000;
 
   let isAutomaticVolumeEnabled = false;
   let selectedVolume: number | null;
@@ -37,7 +42,17 @@
   </SettingsGroup>
 
   <SettingsGroup title="Geral">
-    <SettingsGroupRow label="Ingestão Diária" />
+    <SettingsGroupRow label="Ingestão Diária">
+      <input
+        type="number"
+        bind:value={dailyVolume}
+        min={minDailyVolume}
+        max={maxDailyVolume}
+        on:change={() => {
+          dailyVolume = clamp(dailyVolume, minDailyVolume, maxDailyVolume);
+        }}
+      />
+    </SettingsGroupRow>
     <SettingsGroupRow label="Utilizar Volume Sugerido por Lembrete">
       <input
         type="checkbox"
