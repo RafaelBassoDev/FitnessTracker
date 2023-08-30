@@ -6,3 +6,9 @@
    */
   export let title: string = undefined;
 </script>
+
+<div class="settings-group">
+  {#if title !== undefined}
+    <h1 class="group-title">{title}</h1>
+  {/if}
+</div>
