@@ -4,6 +4,10 @@
 
   let startHour = "08:00";
   let endHour = "22:00";
+  let enableNotifications = true;
+
+  let isAutomaticVolumeEnabled = false;
+  let selectedVolume: number | null;
 </script>
 
 <div class="container">
@@ -24,12 +28,25 @@
         bind:value={endHour}
       />
     </SettingsGroupRow>
-    <SettingsGroupRow label="Ativar Notificações" />
+    <SettingsGroupRow label="Ativar Notificações">
+      <input
+        type="checkbox"
+        bind:checked={enableNotifications}
+      />
+    </SettingsGroupRow>
   </SettingsGroup>
 
   <SettingsGroup title="Geral">
     <SettingsGroupRow label="Ingestão Diária" />
-    <SettingsGroupRow label="Utilizar Volume Sugerido por Lembrete" />
+    <SettingsGroupRow label="Utilizar Volume Sugerido por Lembrete">
+      <input
+        type="checkbox"
+        bind:checked={isAutomaticVolumeEnabled}
+        on:change={() => {
+          selectedVolume = null;
+        }}
+      />
+    </SettingsGroupRow>
     <SettingsGroupRow label="Volume por Lembrete" />
   </SettingsGroup>
 </div>
