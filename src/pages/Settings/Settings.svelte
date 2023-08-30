@@ -13,6 +13,7 @@
 
   let isAutomaticVolumeEnabled = false;
   let selectedVolume: number | null;
+  let availableVolumes = [210, 330, 450, 640];
 </script>
 
 <div class="container">
@@ -62,7 +63,19 @@
         }}
       />
     </SettingsGroupRow>
-    <SettingsGroupRow label="Volume por Lembrete" />
+    <SettingsGroupRow
+      label="Volume por Lembrete"
+      disabled={isAutomaticVolumeEnabled}
+    >
+      <select
+        bind:value={selectedVolume}
+        disabled={isAutomaticVolumeEnabled}
+      >
+        {#each availableVolumes as volume}
+          <option value={volume}>{volume}</option>
+        {/each}
+      </select>
+    </SettingsGroupRow>
   </SettingsGroup>
 </div>
 
