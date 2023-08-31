@@ -1,19 +1,21 @@
 <script lang="ts">
   import { clamp } from "$helpers/MathUtils";
+  import { userSettings } from "$stores/UserSettings";
   import SettingsGroup from "./SettingsGroup.svelte";
   import SettingsGroupRow from "./SettingsGroupRow.svelte";
 
-  let startHour = "08:00";
-  let endHour = "22:00";
-  let enableNotifications = true;
+  const {
+    startHour,
+    endHour,
+    enableNotifications,
+    dailyVolume,
+    minDailyVolume,
+    maxDailyVolume,
+    isAutomaticVolumeEnabled,
+    selectedVolume,
+  } = userSettings;
 
-  let dailyVolume = 3200;
-  let minDailyVolume = 100;
-  let maxDailyVolume = 6000;
-
-  let isAutomaticVolumeEnabled = false;
-  let selectedVolume: number | null;
-  let availableVolumes = [210, 330, 450, 640];
+  const { availableVolumes } = userSettings;
 </script>
 
 <div class="container">
