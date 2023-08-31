@@ -11,6 +11,10 @@ class UserSettings {
     public isAutomaticVolumeEnabled: Writable<boolean> = writable(true),
     public selectedVolume: Writable<number | null> = writable(0)
   ) {}
+
+  get availableVolumes(): number[] {
+    return [100, 200, 300, 400];
+  }
 }
 
 export const userSettings = new UserSettings();
