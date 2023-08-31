@@ -25,7 +25,7 @@
         type="time"
         min="00"
         max="24"
-        bind:value={startHour}
+        bind:value={$startHour}
       />
     </SettingsGroupRow>
     <SettingsGroupRow label="Dormir">
@@ -33,13 +33,13 @@
         type="time"
         min="00"
         max="24"
-        bind:value={endHour}
+        bind:value={$endHour}
       />
     </SettingsGroupRow>
     <SettingsGroupRow label="Ativar Notificações">
       <input
         type="checkbox"
-        bind:checked={enableNotifications}
+        bind:checked={$enableNotifications}
       />
     </SettingsGroupRow>
   </SettingsGroup>
@@ -48,30 +48,34 @@
     <SettingsGroupRow label="Ingestão Diária">
       <input
         type="number"
-        bind:value={dailyVolume}
-        min={minDailyVolume}
-        max={maxDailyVolume}
+        bind:value={$dailyVolume}
+        min={$minDailyVolume}
+        max={$maxDailyVolume}
         on:change={() => {
-          dailyVolume = clamp(dailyVolume, minDailyVolume, maxDailyVolume);
+          $dailyVolume = clamp($dailyVolume, $minDailyVolume, $maxDailyVolume);
         }}
       />
     </SettingsGroupRow>
     <SettingsGroupRow label="Utilizar Volume Sugerido por Lembrete">
       <input
         type="checkbox"
-        bind:checked={isAutomaticVolumeEnabled}
+        bind:checked={$isAutomaticVolumeEnabled}
         on:change={() => {
-          selectedVolume = null;
+          if ($isAutomaticVolumeEnabled) {
+            $selectedVolume = null;
+          } else {
+            $selectedVolume = availableVolumes[0];
+          }
         }}
       />
     </SettingsGroupRow>
     <SettingsGroupRow
       label="Volume por Lembrete"
-      disabled={isAutomaticVolumeEnabled}
+      disabled={$isAutomaticVolumeEnabled}
     >
       <select
-        bind:value={selectedVolume}
-        disabled={isAutomaticVolumeEnabled}
+        bind:value={$selectedVolume}
+        disabled={$isAutomaticVolumeEnabled}
       >
         {#each availableVolumes as volume}
           <option value={volume}>{volume}</option>
