@@ -33,6 +33,7 @@
 </script>
 
 <div class="container">
+  <h1 class="title">Ajustes</h1>
   <SettingsGroup title="Horários">
     <SettingsGroupRow label="Acordar">
       <input
@@ -111,5 +112,11 @@
     padding: 2.5em 0 0 0;
     font-family: Verdana;
     background-color: #f2f1f6;
+  }
+
+  .title {
+    text-align: left;
+    padding: 0 0.8em;
+    color: black;
   }
 </style>
