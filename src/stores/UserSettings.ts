@@ -1,4 +1,4 @@
-import { get, writable, type Writable } from "svelte/store";
+import { writable, type Writable } from "svelte/store";
 import { createVolume } from "$helpers/Volume";
 import Time from "$helpers/Time";
 
@@ -21,6 +21,22 @@ class UserSettings {
       createVolume(240, "Xícara"),
       createVolume(500, "Garrafa d'água"),
     ];
+  }
+
+  getFormattedWakeUpTime(): string {
+    return this.wakeUpTime.getFomattedTime();
+  }
+
+  setFormattedWakeUpTime(newTime: string) {
+    this.wakeUpTime.setTime(newTime);
+  }
+
+  getFormattedSleepTime(): string {
+    return this.sleepTime.getFomattedTime();
+  }
+
+  setFormattedSleepTime(newTime: string) {
+    this.sleepTime.setTime(newTime);
   }
 }
 
