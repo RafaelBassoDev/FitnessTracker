@@ -1,4 +1,5 @@
-import { writable, type Writable } from "svelte/store";
+import { get, writable, type Writable } from "svelte/store";
+import { createVolume } from "$helpers/Volume";
 
 class UserSettings {
   constructor(
@@ -12,8 +13,13 @@ class UserSettings {
     public selectedVolume: Writable<number | null> = writable(0)
   ) {}
 
-  get availableVolumes(): number[] {
-    return [100, 200, 300, 400];
+  get availableVolumes() {
+    return [
+      createVolume(150, "Copo Pequeno"),
+      createVolume(200, "Copo Médio"),
+      createVolume(240, "Xícara"),
+      createVolume(500, "Garrafa d'água"),
+    ];
   }
 }
 
