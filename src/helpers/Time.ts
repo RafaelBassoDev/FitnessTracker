@@ -1,20 +1,17 @@
-class Time {
-  hour: number;
-  minutes: number;
+export default class Time {
+  private hour: number;
+  private minutes: number;
 
-  constructor(hour: number, minute: number) {
+  constructor(hour: number, minutes: number) {
     this.hour = hour;
-    this.minutes = minute;
+    this.minutes = minutes;
   }
 
-  totalMinutes(): number {
+  public getTotalMinutes(): number {
     return this.hour * 60 + this.minutes;
   }
 
-  durationBetween(time: Time) {
-    return Math.abs(this.totalMinutes() - time.totalMinutes());
+  public durationBetween(time: Time) {
+    return Math.abs(this.getTotalMinutes() - time.getTotalMinutes());
   }
 }
-
-export const createTime = (hour: number, minutes: number) =>
-  new Time(hour, minutes);
