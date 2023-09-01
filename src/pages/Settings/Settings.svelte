@@ -16,8 +16,14 @@
   } = userSettings;
 
   let wakeUpTime = writable(userSettings.getFormattedWakeUpTime());
+  wakeUpTime.subscribe(() => {
+    userSettings.setFormattedWakeUpTime($wakeUpTime);
+  });
 
   let sleepTime = writable(userSettings.getFormattedSleepTime());
+  sleepTime.subscribe(() => {
+    userSettings.setFormattedSleepTime($sleepTime);
+  });
 </script>
 
 <div class="container">
