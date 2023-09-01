@@ -5,17 +5,14 @@
   import SettingsGroupRow from "./SettingsGroupRow.svelte";
 
   const {
-    startHour,
-    endHour,
     enableNotifications,
     dailyVolume,
     minDailyVolume,
     maxDailyVolume,
     isAutomaticVolumeEnabled,
     selectedVolume,
+    availableVolumes,
   } = userSettings;
-
-  const { availableVolumes } = userSettings;
 </script>
 
 <div class="container">
@@ -64,7 +61,7 @@
           if ($isAutomaticVolumeEnabled) {
             $selectedVolume = null;
           } else {
-            $selectedVolume = availableVolumes[0];
+            $selectedVolume = availableVolumes[0].value;
           }
         }}
       />
@@ -78,7 +75,9 @@
         disabled={$isAutomaticVolumeEnabled}
       >
         {#each availableVolumes as volume}
-          <option value={volume}>{volume}</option>
+          <option value={volume.value}
+            >{volume.value}ml {volume.description}</option
+          >
         {/each}
       </select>
     </SettingsGroupRow>
