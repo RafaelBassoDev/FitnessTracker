@@ -7,3 +7,6 @@ class Time {
     this.minutes = minute;
   }
 }
+
+export const createTime = (hour: number, minutes: number) =>
+  new Time(hour, minutes);
