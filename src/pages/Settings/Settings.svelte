@@ -2,6 +2,7 @@
   import { clamp } from "$helpers/MathUtils";
   import { userSettings } from "$stores/UserSettings";
   import { writable } from "svelte/store";
+  import { onDestroy } from "svelte";
   import SettingsGroup from "./SettingsGroup.svelte";
   import SettingsGroupRow from "./SettingsGroupRow.svelte";
 
@@ -16,13 +17,18 @@
   } = userSettings;
 
   let wakeUpTime = writable(userSettings.getFormattedWakeUpTime());
-  wakeUpTime.subscribe(() => {
+  const unsubscribeWakeUpTime = wakeUpTime.subscribe(() => {
     userSettings.setFormattedWakeUpTime($wakeUpTime);
   });
 
   let sleepTime = writable(userSettings.getFormattedSleepTime());
-  sleepTime.subscribe(() => {
+  const unsubscribeSleepTime = sleepTime.subscribe(() => {
     userSettings.setFormattedSleepTime($sleepTime);
+  });
+
+  onDestroy(() => {
+    unsubscribeWakeUpTime;
+    unsubscribeSleepTime;
   });
 </script>
 
