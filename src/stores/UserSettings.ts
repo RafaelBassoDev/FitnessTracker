@@ -1,5 +1,5 @@
 import { writable, type Writable } from "svelte/store";
-import { createVolume } from "$helpers/Volume";
+import { Volume } from "$helpers/Volume";
 import Time from "$helpers/Time";
 
 class UserSettings {
@@ -16,10 +16,10 @@ class UserSettings {
 
   get availableVolumes() {
     return [
-      createVolume(150, "Copo Pequeno"),
-      createVolume(200, "Copo Médio"),
-      createVolume(240, "Xícara"),
-      createVolume(500, "Garrafa d'água"),
+      new Volume(150, "Copo Pequeno"),
+      new Volume(150, "Copo Médio"),
+      new Volume(150, "Xícara"),
+      new Volume(150, "Garrafa d'água"),
     ];
   }
 
