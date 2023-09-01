@@ -1,6 +1,7 @@
 <script lang="ts">
   import { clamp } from "$helpers/MathUtils";
   import { userSettings } from "$stores/UserSettings";
+  import { writable } from "svelte/store";
   import SettingsGroup from "./SettingsGroup.svelte";
   import SettingsGroupRow from "./SettingsGroupRow.svelte";
 
@@ -13,6 +14,10 @@
     selectedVolume,
     availableVolumes,
   } = userSettings;
+
+  let wakeUpTime = writable(userSettings.getFormattedWakeUpTime());
+
+  let sleepTime = writable(userSettings.getFormattedSleepTime());
 </script>
 
 <div class="container">
@@ -22,7 +27,7 @@
         type="time"
         min="00"
         max="24"
-        bind:value={$startHour}
+        bind:value={$wakeUpTime}
       />
     </SettingsGroupRow>
     <SettingsGroupRow label="Dormir">
@@ -30,7 +35,7 @@
         type="time"
         min="00"
         max="24"
-        bind:value={$endHour}
+        bind:value={$sleepTime}
       />
     </SettingsGroupRow>
     <SettingsGroupRow label="Ativar Notificações">
