@@ -1,7 +1,12 @@
 <script lang="ts">
   import { conditionsFailHandler, routeLoadingHandler, routes } from "./routes";
-  import Router from "svelte-spa-router";
+  import Router, { push } from "svelte-spa-router";
   import TabBar from "$components/TabBar/TabBar.svelte";
+  import TabBarButton from "$components/TabBar/TabBarButton.svelte";
+
+  import navbar_water_drop from "$assets/navbar/water-drop.svg";
+  import navbar_home from "$assets/navbar/home.svg";
+  import navbar_settings from "$assets/navbar/settings.svg";
 </script>
 
 <main>
@@ -12,5 +17,45 @@
   />
 </main>
 <footer>
-  <TabBar />
+  <TabBar>
+    <TabBarButton
+      action={() => {
+        push("/").catch((e) => {
+          throw e;
+        });
+      }}
+    >
+      <img
+        src={navbar_water_drop}
+        alt="water intake"
+        class="image-tag"
+      />
+    </TabBarButton>
+    <TabBarButton
+      action={() => {
+        push("/").catch((e) => {
+          throw e;
+        });
+      }}
+    >
+      <img
+        src={navbar_home}
+        alt="home"
+        class="image-tag"
+      />
+    </TabBarButton>
+    <TabBarButton
+      action={() => {
+        push("/settings").catch((e) => {
+          throw e;
+        });
+      }}
+    >
+      <img
+        src={navbar_settings}
+        alt="settings"
+        class="image-tag"
+      />
+    </TabBarButton>
+  </TabBar>
 </footer>
