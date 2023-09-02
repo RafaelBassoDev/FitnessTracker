@@ -5,13 +5,14 @@ import Time from "$helpers/Time";
 class UserSettings {
   private readonly volumePercentages = [1, 2, 3, 4, 5, 10, 15, 20, 25, 30];
 
+  public readonly minDailyVolume: number = 100;
+  public readonly maxDailyVolume: number = 6000;
+
   constructor(
     private wakeUpTime: Time = new Time(8, 0),
     private sleepTime: Time = new Time(22, 0),
     public enableNotifications: Writable<boolean> = writable(true),
     public dailyVolume: Writable<number> = writable(2900),
-    public minDailyVolume: Writable<number> = writable(100),
-    public maxDailyVolume: Writable<number> = writable(6000),
     public isAutomaticVolumeEnabled: Writable<boolean> = writable(true),
     public selectedVolume: Writable<number | null> = writable(0)
   ) {}
