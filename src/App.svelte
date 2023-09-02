@@ -5,7 +5,8 @@
   import TabBarButton from "$components/TabBar/TabBarButton.svelte";
 
   import navbar_water_drop from "$assets/navbar/water-drop.svg";
-  import navbar_home from "$assets/navbar/home.svg";
+  import navbar_walk from "$assets/navbar/walk.svg";
+  import navbar_history from "$assets/navbar/history.svg";
   import navbar_settings from "$assets/navbar/settings.svg";
 </script>
 
@@ -28,7 +29,6 @@
       <img
         src={navbar_water_drop}
         alt="water intake"
-        class="image-tag"
       />
     </TabBarButton>
     <TabBarButton
@@ -39,9 +39,20 @@
       }}
     >
       <img
-        src={navbar_home}
-        alt="home"
-        class="image-tag"
+        src={navbar_walk}
+        alt="walk and strech"
+      />
+    </TabBarButton>
+    <TabBarButton
+      action={() => {
+        push("/").catch((e) => {
+          throw e;
+        });
+      }}
+    >
+      <img
+        src={navbar_history}
+        alt="history"
       />
     </TabBarButton>
     <TabBarButton
@@ -54,7 +65,6 @@
       <img
         src={navbar_settings}
         alt="settings"
-        class="image-tag"
       />
     </TabBarButton>
   </TabBar>
