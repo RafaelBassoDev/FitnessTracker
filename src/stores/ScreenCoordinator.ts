@@ -13,4 +13,8 @@ export class ScreenCoordinator {
   set currentScreen(newValue: Screen) {
     this._currentScreen = newValue;
   }
+
+  get availableScreens(): Screen[] {
+    return [Screen.waterIntake, Screen.strech, Screen.history, Screen.settings];
+  }
 }
