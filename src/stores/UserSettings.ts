@@ -1,8 +1,10 @@
-import { writable, type Writable } from "svelte/store";
+import { get, writable, type Writable } from "svelte/store";
 import { Volume } from "$helpers/Volume";
 import Time from "$helpers/Time";
 
 class UserSettings {
+  private readonly volumePercentages = [1, 2, 3, 4, 5, 10, 15, 20, 25, 30];
+
   constructor(
     private wakeUpTime: Time = new Time(8, 0),
     private sleepTime: Time = new Time(22, 0),
@@ -14,13 +16,16 @@ class UserSettings {
     public selectedVolume: Writable<number | null> = writable(0)
   ) {}
 
-  get availableVolumes() {
-    return [
-      new Volume(150, "Copo Pequeno"),
-      new Volume(150, "Copo Médio"),
-      new Volume(150, "Xícara"),
-      new Volume(150, "Garrafa d'água"),
-    ];
+  getAvailableVolumes(): Volume[] {
+    const volumes: Volume[] = [];
+    const currentDailyVolume = get(this.dailyVolume);
+
+    this.volumePercentages.forEach((volume) => {
+      const percentage = volume / 100;
+      volumes.push(new Volume(currentDailyVolume * percentage, `${volume}%`));
+    });
+
+    return volumes;
   }
 
   getFormattedWakeUpTime(): string {
