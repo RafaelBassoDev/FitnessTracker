@@ -78,7 +78,10 @@
           if ($isAutomaticVolumeEnabled) {
             $selectedVolume = null;
           } else {
-            $selectedVolume = userSettings.getAvailableVolumes()[0].value;
+            const firstVolume = userSettings.getAvailableVolumes()[0];
+            if (firstVolume !== null) {
+              $selectedVolume = firstVolume.value;
+            }
           }
         }}
       />
