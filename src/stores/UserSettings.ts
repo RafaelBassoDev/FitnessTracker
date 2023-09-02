@@ -16,7 +16,7 @@ class UserSettings {
     public selectedVolume: Writable<number | null> = writable(0)
   ) {}
 
-  getAvailableVolumes() {
+  getAvailableVolumes(): Volume[] {
     const volumes: Volume[] = [];
     const currentDailyVolume = get(this.dailyVolume);
 
