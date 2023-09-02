@@ -63,10 +63,10 @@
       <input
         type="number"
         bind:value={$dailyVolume}
-        min={$minDailyVolume}
-        max={$maxDailyVolume}
+        min={minDailyVolume}
+        max={maxDailyVolume}
         on:change={() => {
-          $dailyVolume = clamp($dailyVolume, $minDailyVolume, $maxDailyVolume);
+          $dailyVolume = clamp($dailyVolume, minDailyVolume, maxDailyVolume);
         }}
       />
     </SettingsGroupRow>
