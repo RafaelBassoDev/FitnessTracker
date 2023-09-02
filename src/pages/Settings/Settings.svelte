@@ -75,14 +75,7 @@
         type="checkbox"
         bind:checked={$isAutomaticVolumeEnabled}
         on:change={() => {
-          if ($isAutomaticVolumeEnabled) {
-            $selectedVolume = null;
-          } else {
-            const firstVolume = userSettings.getAvailableVolumes()[0];
-            if (firstVolume !== null) {
-              $selectedVolume = firstVolume.value;
-            }
-          }
+          userSettings.toggleAutomaticVolume();
         }}
       />
     </SettingsGroupRow>

@@ -43,6 +43,17 @@ class UserSettings {
   setFormattedSleepTime(newTime: string) {
     this.sleepTime.setTime(newTime);
   }
+
+  toggleAutomaticVolume() {
+    if (get(this.isAutomaticVolumeEnabled)) {
+      this.selectedVolume.set(null);
+    } else {
+      const firstVolume = userSettings.getAvailableVolumes()[0];
+      if (firstVolume !== null) {
+        this.selectedVolume.set(firstVolume.value);
+      }
+    }
+  }
 }
 
 export const userSettings = new UserSettings();
