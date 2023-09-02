@@ -6,7 +6,7 @@
   import { ScreenCoordinator } from "$stores/ScreenCoordinator";
   import { Screen } from "$helpers/Screen";
 
-  const coordinator = new ScreenCoordinator(Screen.settings);
+  const coordinator = new ScreenCoordinator(Screen.waterIntake);
 </script>
 
 <main>
