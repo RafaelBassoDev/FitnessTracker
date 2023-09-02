@@ -13,7 +13,6 @@
     maxDailyVolume,
     isAutomaticVolumeEnabled,
     selectedVolume,
-    availableVolumes,
   } = userSettings;
 
   let wakeUpTime = writable(userSettings.getFormattedWakeUpTime());
@@ -79,7 +78,7 @@
           if ($isAutomaticVolumeEnabled) {
             $selectedVolume = null;
           } else {
-            $selectedVolume = availableVolumes[0].value;
+            $selectedVolume = userSettings.getAvailableVolumes()[0].value;
           }
         }}
       />
@@ -92,9 +91,9 @@
         bind:value={$selectedVolume}
         disabled={$isAutomaticVolumeEnabled}
       >
-        {#each availableVolumes as volume}
+        {#each userSettings.getAvailableVolumes() as volume}
           <option value={volume.value}
-            >{volume.value}ml {volume.description}</option
+            >{volume.value}ml ({volume.description})</option
           >
         {/each}
       </select>
