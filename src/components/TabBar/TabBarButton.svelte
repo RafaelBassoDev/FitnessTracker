@@ -1,4 +1,14 @@
-<button class="tab-button">
+<script lang="ts">
+  /**
+   * Defines what action the button will perform when `on:click` is called.
+   */
+  export let action: (() => void) | null = null;
+</script>
+
+<button
+  class="tab-button"
+  on:click={action}
+>
   <slot />
 </button>
 
