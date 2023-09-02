@@ -21,6 +21,6 @@
 
   .tab-bar-content {
     display: flex;
-    gap: 50px;
+    gap: 30px;
   }
 </style>
