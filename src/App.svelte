@@ -1,13 +1,12 @@
 <script lang="ts">
   import { conditionsFailHandler, routeLoadingHandler, routes } from "./routes";
-  import Router, { push } from "svelte-spa-router";
+  import Router from "svelte-spa-router";
   import TabBar from "$components/TabBar/TabBar.svelte";
   import TabBarButton from "$components/TabBar/TabBarButton.svelte";
+  import { ScreenCoordinator } from "$stores/ScreenCoordinator";
+  import { Screen } from "$helpers/Screen";
 
-  import navbar_water_drop from "$assets/navbar/water-drop.svg";
-  import navbar_walk from "$assets/navbar/walk.svg";
-  import navbar_history from "$assets/navbar/history.svg";
-  import navbar_settings from "$assets/navbar/settings.svg";
+  const coordinator = new ScreenCoordinator(Screen.settings);
 </script>
 
 <main>
@@ -19,53 +18,19 @@
 </main>
 <footer>
   <TabBar>
-    <TabBarButton
-      action={() => {
-        push("/").catch((e) => {
-          throw e;
-        });
-      }}
-    >
-      <img
-        src={navbar_water_drop}
-        alt="water intake"
-      />
-    </TabBarButton>
-    <TabBarButton
-      action={() => {
-        push("/").catch((e) => {
-          throw e;
-        });
-      }}
-    >
-      <img
-        src={navbar_walk}
-        alt="walk and strech"
-      />
-    </TabBarButton>
-    <TabBarButton
-      action={() => {
-        push("/").catch((e) => {
-          throw e;
-        });
-      }}
-    >
-      <img
-        src={navbar_history}
-        alt="history"
-      />
-    </TabBarButton>
-    <TabBarButton
-      action={() => {
-        push("/settings").catch((e) => {
-          throw e;
-        });
-      }}
-    >
-      <img
-        src={navbar_settings}
-        alt="settings"
-      />
-    </TabBarButton>
+    {#each coordinator.availableScreens as screen}
+      <TabBarButton
+        action={() => {
+          coordinator.pushScreen(screen);
+          coordinator.currentScreen = screen;
+        }}
+        isSelected={coordinator.currentScreen === screen}
+      >
+        <img
+          src={coordinator.getImagePathFor(screen)}
+          alt={screen}
+        />
+      </TabBarButton>
+    {/each}
   </TabBar>
 </footer>
