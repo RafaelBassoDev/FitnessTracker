@@ -12,7 +12,7 @@
   class="tab-button"
   class:isSelected
   on:click={() => {
-    action;
+    action();
     hapticsImpactLight;
   }}
 >
