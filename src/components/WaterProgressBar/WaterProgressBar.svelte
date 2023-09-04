@@ -12,3 +12,13 @@
 
   $: height = clamp(Math.round(progress), 0, 100);
 </script>
+
+<div class="container">
+  <div
+    class="water-effect"
+    style="height: {height}%;"
+  >
+    <div class="waves" />
+    <div class="water" />
+  </div>
+</div>
