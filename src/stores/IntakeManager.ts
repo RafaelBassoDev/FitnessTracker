@@ -1,3 +1,6 @@
+import { userSettings } from "$stores/UserSettings";
+import { get } from "svelte/store";
+
 class IntakeManager {
   private _currentConsumedVolume: number;
 
@@ -15,6 +18,10 @@ class IntakeManager {
     }
 
     this._currentConsumedVolume = volume;
+  }
+
+  public get dailyVolume(): number {
+    return get(userSettings.dailyVolume);
   }
 }
 
