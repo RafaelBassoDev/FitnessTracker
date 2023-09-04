@@ -1,4 +1,4 @@
-class WaterIntakeManager {
+class IntakeManager {
   private _currentConsumedVolume: number;
 
   constructor() {
@@ -18,4 +18,4 @@ class WaterIntakeManager {
   }
 }
 
-export const waterIntakeManager = new WaterIntakeManager();
+export const intakeManager = new IntakeManager();

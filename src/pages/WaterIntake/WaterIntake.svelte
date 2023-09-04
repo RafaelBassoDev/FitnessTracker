@@ -2,21 +2,21 @@
   import NumberInput from "$components/NumberInput/NumberInput.svelte";
   import WaterProgressBar from "$components/WaterProgressBar/WaterProgressBar.svelte";
   import { userSettings } from "$stores/UserSettings";
+  import { intakeManager } from "$stores/IntakeManager";
   import { get } from "svelte/store";
 
   let totalIntakeVolume = get(userSettings.dailyVolume);
 
-  let currentWaterQnt = 0;
   let numberInputValue = 0;
 
   $: progressBarHeight = Math.round(
-    (currentWaterQnt / totalIntakeVolume) * 100
+    (intakeManager.currentIntakeVolume / totalIntakeVolume) * 100
   );
 </script>
 
 <div class="container">
   <div class="info-display">
-    <div class="primary">{currentWaterQnt}</div>
+    <div class="primary">{intakeManager.currentIntakeVolume}</div>
     <div class="secondary">DE</div>
     <div class="primary">{totalIntakeVolume}<span class="detail">ml</span></div>
   </div>
@@ -29,7 +29,7 @@
       class="add-button"
       on:click={() => {
         if (numberInputValue !== null) {
-          currentWaterQnt += Number(numberInputValue);
+          intakeManager.currentIntakeVolume += Number(numberInputValue);
         }
       }}>Beber Água</button
     >
