@@ -1,14 +1,18 @@
 <script lang="ts">
   import NumberInput from "$components/NumberInput/NumberInput.svelte";
+  import { userSettings } from "$stores/UserSettings";
+  import { get } from "svelte/store";
+
+  let totalIntakeVolume = get(userSettings.dailyVolume);
 
   let currentWaterQnt = 0;
 </script>
 
 <div class="container">
   <div class="info-display">
-    <div class="primary">1200</div>
+    <div class="primary">{currentWaterQnt}</div>
     <div class="secondary">DE</div>
-    <div class="primary">2900<span class="detail">ml</span></div>
+    <div class="primary">{totalIntakeVolume}<span class="detail">ml</span></div>
   </div>
   <div class="input-container">
     <NumberInput
