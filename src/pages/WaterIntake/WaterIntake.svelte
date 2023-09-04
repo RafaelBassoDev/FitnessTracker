@@ -24,7 +24,9 @@
     <button
       class="add-button"
       on:click={() => {
-        // somar agua
+        if (numberInputValue !== null) {
+          currentWaterQnt += Number(numberInputValue);
+        }
       }}>Beber Água</button
     >
   </div>
