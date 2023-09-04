@@ -1,8 +1,12 @@
 class WaterIntakeManager {
-  private _totalConsumedWaterVolume: number;
+  private _currentConsumedVolume: number;
+
+  constructor() {
+    this._currentConsumedVolume = 0;
+  }
 
   public get currentIntakeVolume(): number {
-    return this._totalConsumedWaterVolume;
+    return this._currentConsumedVolume;
   }
 
   public set currentIntakeVolume(volume: number) {
@@ -10,7 +14,7 @@ class WaterIntakeManager {
       return;
     }
 
-    this._totalConsumedWaterVolume = volume;
+    this._currentConsumedVolume = volume;
   }
 }
 
