@@ -14,6 +14,12 @@ import { wrap } from "svelte-spa-router/wrap";
 export const routes = new Map();
 
 routes.set(
+  "/",
+  wrap({
+    component: WaterIntake,
+  })
+);
+routes.set(
   "/water-intake",
   wrap({
     component: WaterIntake,
