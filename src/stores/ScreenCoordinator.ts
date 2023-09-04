@@ -1,6 +1,5 @@
 import { Screen } from "$helpers/Screen";
 import { push } from "svelte-spa-router";
-import path from "path";
 
 export class ScreenCoordinator {
   private _currentScreen: Screen;
