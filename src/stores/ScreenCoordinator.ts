@@ -1,5 +1,6 @@
 import { Screen } from "$helpers/Screen";
 import { push } from "svelte-spa-router";
+import path from "path";
 
 export class ScreenCoordinator {
   private _currentScreen: Screen;
@@ -26,6 +27,6 @@ export class ScreenCoordinator {
   }
 
   getImagePathFor(screen: Screen): string {
-    return `src/assets/navbar/${screen}.svg`;
+    return `assets/navbar/${screen}.svg`;
   }
 }
