@@ -1,3 +1,9 @@
+<script lang="ts">
+  import NumberInput from "$components/NumberInput/NumberInput.svelte";
+
+  let currentWaterQnt = 0;
+</script>
+
 <div class="container">
   <div class="info-display">
     <div class="primary">1200</div>
@@ -5,6 +11,10 @@
     <div class="primary">2900<span class="detail">ml</span></div>
   </div>
   <div class="input-container">
+    <NumberInput
+      bind:value={currentWaterQnt}
+      width="200"
+    />
     <button
       class="add-button"
       on:click={() => {
