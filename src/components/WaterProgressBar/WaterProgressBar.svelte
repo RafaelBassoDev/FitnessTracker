@@ -10,10 +10,20 @@
    */
   export let progress = 0;
 
+  /**
+   * The z-index of the component.
+   *
+   * Default value is -1.
+   */
+  export let zIndex = -1;
+
   $: height = clamp(Math.round(progress), 0, 100);
 </script>
 
-<div class="container">
+<div
+  class="container"
+  style="z-index: {zIndex};"
+>
   <div
     class="water-effect"
     style="height: {height}%;"
@@ -31,7 +41,6 @@
     justify-content: end;
     width: 100%;
     height: 100%;
-    z-index: -1;
 
     .water-effect {
       position: absolute;
