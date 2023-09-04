@@ -6,6 +6,8 @@
   let totalIntakeVolume = get(userSettings.dailyVolume);
 
   let currentWaterQnt = 0;
+
+  let numberInputValue = 0;
 </script>
 
 <div class="container">
@@ -16,7 +18,7 @@
   </div>
   <div class="input-container">
     <NumberInput
-      bind:value={currentWaterQnt}
+      bind:value={numberInputValue}
       width="200"
     />
     <button
