@@ -62,6 +62,13 @@
     }
   }
 
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+  }
+
   .add-button {
     background-color: #007aff;
     color: white;
