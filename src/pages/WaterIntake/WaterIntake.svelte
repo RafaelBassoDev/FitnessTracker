@@ -1,16 +1,12 @@
 <script lang="ts">
   import NumberInput from "$components/NumberInput/NumberInput.svelte";
   import WaterProgressBar from "$components/WaterProgressBar/WaterProgressBar.svelte";
-  import { userSettings } from "$stores/UserSettings";
   import { intakeManager } from "$stores/IntakeManager";
-  import { get } from "svelte/store";
-
-  let totalIntakeVolume = get(userSettings.dailyVolume);
 
   let numberInputValue = 0;
 
   $: progressBarHeight = Math.round(
-    (intakeManager.currentIntakeVolume / totalIntakeVolume) * 100
+    (intakeManager.currentIntakeVolume / intakeManager.dailyVolume) * 100
   );
 </script>
 
@@ -18,7 +14,9 @@
   <div class="info-display">
     <div class="primary">{intakeManager.currentIntakeVolume}</div>
     <div class="secondary">DE</div>
-    <div class="primary">{totalIntakeVolume}<span class="detail">ml</span></div>
+    <div class="primary">
+      {intakeManager.dailyVolume}<span class="detail">ml</span>
+    </div>
   </div>
   <div class="input-container">
     <NumberInput
