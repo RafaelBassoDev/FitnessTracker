@@ -26,6 +26,6 @@ export class ScreenCoordinator {
   }
 
   getImagePathFor(screen: Screen): string {
-    return `src/assets/navbar/${screen}.svg`;
+    return `assets/navbar/${screen}.svg`;
   }
 }

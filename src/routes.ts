@@ -1,9 +1,9 @@
-import Home from "$pages/Home/Home.svelte";
+import History from "$pages/History/History.svelte";
 import NotAuthorized from "$pages/NotAuthorized/NotAuthorized.svelte";
 import NotFound from "$pages/NotFound/NotFound.svelte";
-import Profile from "$pages/Profile/Profile.svelte";
 import Settings from "$pages/Settings/Settings.svelte";
-import { isUserLoggedIn } from "$policies/auth";
+import Stretch from "$pages/Stretch/Stretch.svelte";
+import WaterIntake from "$pages/WaterIntake/WaterIntake.svelte";
 import {
   type ConditionsFailedEvent,
   type RouteLoadingEvent,
@@ -16,20 +16,31 @@ export const routes = new Map();
 routes.set(
   "/",
   wrap({
-    component: Home,
+    component: WaterIntake,
+  })
+);
+routes.set(
+  "/water-intake",
+  wrap({
+    component: WaterIntake,
+  })
+);
+routes.set(
+  "/stretch",
+  wrap({
+    component: Stretch,
+  })
+);
+routes.set(
+  "/history",
+  wrap({
+    component: History,
   })
 );
 routes.set(
   "/settings",
   wrap({
     component: Settings,
-  })
-);
-routes.set(
-  "/profile",
-  wrap({
-    component: Profile,
-    conditions: [isUserLoggedIn],
   })
 );
 routes.set(

@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { clamp } from "$helpers/MathUtils";
   import { userSettings } from "$stores/UserSettings";
   import { writable } from "svelte/store";
   import { onDestroy } from "svelte";
   import SettingsGroup from "./SettingsGroup.svelte";
   import SettingsGroupRow from "./SettingsGroupRow.svelte";
+  import NumberInput from "$components/NumberInput/NumberInput.svelte";
 
   const {
     enableNotifications,
@@ -60,14 +60,12 @@
 
   <SettingsGroup title="Geral">
     <SettingsGroupRow label="Ingestão Diária">
-      <input
-        type="number"
+      <NumberInput
         bind:value={$dailyVolume}
-        min={$minDailyVolume}
-        max={$maxDailyVolume}
-        on:change={() => {
-          $dailyVolume = clamp($dailyVolume, $minDailyVolume, $maxDailyVolume);
-        }}
+        width="50"
+        height="5"
+        min={minDailyVolume}
+        max={maxDailyVolume}
       />
     </SettingsGroupRow>
     <SettingsGroupRow label="Utilizar Volume Sugerido por Lembrete">
@@ -75,14 +73,7 @@
         type="checkbox"
         bind:checked={$isAutomaticVolumeEnabled}
         on:change={() => {
-          if ($isAutomaticVolumeEnabled) {
-            $selectedVolume = null;
-          } else {
-            const firstVolume = userSettings.getAvailableVolumes()[0];
-            if (firstVolume !== null) {
-              $selectedVolume = firstVolume.value;
-            }
-          }
+          userSettings.toggleAutomaticVolume();
         }}
       />
     </SettingsGroupRow>

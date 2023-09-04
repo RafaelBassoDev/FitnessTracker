@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { hapticsImpactLight } from "$helpers/Haptics";
   /**
    * Defines what action the button will perform when `on:click` is called.
    */
@@ -10,7 +11,10 @@
 <button
   class="tab-button"
   class:isSelected
-  on:click={action}
+  on:click={() => {
+    action();
+    hapticsImpactLight;
+  }}
 >
   <slot />
 </button>
