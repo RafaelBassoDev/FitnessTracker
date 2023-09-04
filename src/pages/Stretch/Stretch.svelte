@@ -1,17 +1,17 @@
 <script lang="ts">
-  let count = 0;
+  import { stretchManager } from "$stores/StretchManager";
 </script>
 
 <div class="container">
   <div class="info-display">
     <div class="primary">PAUSAS</div>
-    <div class="secondary">{count}</div>
+    <div class="secondary">{stretchManager.currentStretchCount}</div>
   </div>
   <div class="input-container">
     <button
       class="add-button"
       on:click={() => {
-        count++;
+        stretchManager.currentStretchCount++;
       }}
     >
       +
