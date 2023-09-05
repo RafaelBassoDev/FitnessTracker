@@ -7,5 +7,5 @@ Keep track of your daily water intake and remember when to stretch!
 - [x] Water intake tracker
 - [x] Stretch tracker
 - [x] Settings
-- [] Local storage
-- [] Local notifications
+- [ ] Local storage
+- [ ] Local notifications
