@@ -26,7 +26,7 @@
     <button
       class="add-button"
       on:click={() => {
-        if (numberInputValue !== null) {
+        if (numberInputValue !== null && !isNaN(numberInputValue)) {
           intakeManager.currentIntakeVolume += Number(numberInputValue);
         }
       }}>Beber Água</button
