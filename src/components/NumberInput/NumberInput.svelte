@@ -43,6 +43,9 @@
   bind:value
   {min}
   {max}
+  on:click={() => {
+    value = null;
+  }}
   on:change={() => {
     onChangeEvent;
     value = clamp(value, min, max);
