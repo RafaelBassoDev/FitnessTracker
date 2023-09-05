@@ -11,12 +11,15 @@
 </script>
 
 <div class="container">
-  <div class="info-display">
-    <div class="primary">{intakeManager.currentIntakeVolume}</div>
-    <div class="secondary">DE</div>
-    <div class="primary">
-      {intakeManager.dailyVolume}<span class="detail">ml</span>
+  <div class="centralized">
+    <div class="info-display">
+      <div class="primary">{intakeManager.currentIntakeVolume}</div>
+      <div class="secondary">DE</div>
+      <div class="primary">
+        {intakeManager.dailyVolume}<span class="detail">ml</span>
+      </div>
     </div>
+    <p>{progressBarHeight}%</p>
   </div>
   <div class="input-container">
     <NumberInput
@@ -47,10 +50,27 @@
     justify-content: center;
     align-items: center;
     font-family: Verdana;
-    gap: 15em;
+    gap: 12em;
     height: 100vh;
     background-color: transparent;
     overflow: hidden;
+
+    .centralized {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+
+      p {
+        font-size: 20px;
+        font-weight: normal;
+        margin: 0;
+        background-color: #dadada8c;
+        border-radius: 8px;
+        padding: 5px;
+      }
+    }
   }
 
   .info-display {
