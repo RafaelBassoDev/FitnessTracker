@@ -30,6 +30,6 @@
   }
 
   .isSelected {
-    background-color: rgb(210, 210, 210);
+    background-color: #dadada8c;
   }
 </style>
