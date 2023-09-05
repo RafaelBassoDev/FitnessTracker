@@ -16,7 +16,7 @@ export class ScreenCoordinator {
   }
 
   get availableScreens(): Screen[] {
-    return [Screen.waterIntake, Screen.strech, Screen.history, Screen.settings];
+    return [Screen.waterIntake, Screen.strech, Screen.settings];
   }
 
   pushScreen(newScreen: Screen) {
