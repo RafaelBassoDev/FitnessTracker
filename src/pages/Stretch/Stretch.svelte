@@ -4,8 +4,8 @@
 
 <div class="container">
   <div class="info-display">
-    <div class="primary">PAUSAS</div>
-    <div class="secondary">{stretchManager.currentStretchCount}</div>
+    <div>ALONGAMENTOS</div>
+    <div>{stretchManager.currentStretchCount}</div>
   </div>
   <div class="input-container">
     <button
@@ -42,14 +42,7 @@
     align-items: center;
     font-weight: bolder;
     gap: 10px;
-
-    .primary {
-      font-size: 36px;
-    }
-
-    .secondary {
-      font-size: 30px;
-    }
+    font-size: 32px;
   }
 
   .input-container {
